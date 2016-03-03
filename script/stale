@@ -4,11 +4,15 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ -d "/Applications/Tunnelblick.app" ]]; then
-    return 1
-  fi
+  case "$(uname -s)" in 
+    Darwin)
+      if [[ ! -d "/Applications/Tunnelblick.app" ]]; then
+        return 0
+      fi
+      ;;
+  esac
 
-  return 0
+  return 1
 }
 
 source sub "$BASH_SOURCE" "$@"
