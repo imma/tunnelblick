@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  app compile dmg 'https://tunnelblick.net/release/Tunnelblick_3.5.8_build_4270.4530.dmg'
+  open "/Volumes/Tunnelblick/Tunnelblick.app"
+}
+
+bootstrap
