@@ -6,7 +6,7 @@ function bootstrap {
 
   case "$(uname -s)" in
     Darwin)
-      block compile dmg 'https://tunnelblick.net/release/Tunnelblick_3.6.0a_build_4543.4546.dmg'
+      block compile dmg 'https://tunnelblick.net/release/Tunnelblick_3.6.3_build_4560.dmg'
       open "/Volumes/Tunnelblick/Tunnelblick.app"
       ;;
   esac
