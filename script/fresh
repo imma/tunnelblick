@@ -4,6 +4,15 @@ function home_bootstrap {
   local shome="${_defn_osx_home:-"$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"}"
   source "$shome/script/profile"
 
+  case "$(uname -s)" in
+    Darwin)
+      true
+      ;;
+    *)
+      return 0
+      ;;
+  esac
+
   exec 1>/dev/null 2>&1
 
   for a in tunnelblick; do
