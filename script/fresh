@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function home_bootstrap {
+  local shome="${_defn_osx_home:-"$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"}"
+  source "$shome/script/profile"
+
+  exec 1>/dev/null 2>&1
+
+  for a in tunnelblick; do
+    if ! brew cask list $a; then
+      return 1
+    fi
+  done
+}
+
+home_bootstrap "$@"
